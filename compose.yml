@@ -1,0 +1,14 @@
+services:
+  bi-erp:
+    image: registry.bengkelinovasi.id/erp:0.0.1-dev
+    container_name: bi-erp
+    environment:
+      - SPRING_PROFILES_ACTIVE=staging
+    restart: always
+    networks:
+      - podincloud-network
+
+
+networks:
+  podincloud-network:
+    external: true

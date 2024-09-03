@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS "users" (
+    "id" UUID PRIMARY KEY,
+    "name" TEXT NOT NULL,
+    "email" TEXT UNIQUE NOT NULL,
+    "password" TEXT NOT NULL,
+    "photo_url" TEXT NULL,
+    "role" INT NOT NULL,
+    "company_id" UUID NOT NULL REFERENCES "companies"("id") ON DELETE CASCADE,
+    "created_at" TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
